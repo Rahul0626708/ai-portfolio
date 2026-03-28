@@ -1,0 +1,16 @@
+# AI Portfolio Platform
+
+Full stack portfolio — React · Python FastAPI · Spring Boot · Node.js
+
+## Services
+
+| Service      | Tech           | Port |
+| ------------ | -------------- | ---- |
+| Frontend     | React + Vite   | 3000 |
+| AI / Contact | Python FastAPI | 8000 |
+| Projects API | Spring Boot    | 8080 |
+| Auth / RT    | Node.js        | 4000 |
+
+## Quick start
+
+docker-compose up --build
