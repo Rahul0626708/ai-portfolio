@@ -15,3 +15,5 @@ export const sendMessage = (data: {
   email: string
   message: string
 }) => api.post('/api/contact/send', data)
+export const sendChat = (message: string) =>
+  api.post('/api/chat', { message })

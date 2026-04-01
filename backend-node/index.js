@@ -29,3 +29,7 @@ app.use('/api/contact', createProxyMiddleware({
 app.listen(PORT, () => {
   console.log(`Gateway running on port ${PORT}`)
 })
+app.use('/api/chat', createProxyMiddleware({
+  target: 'http://localhost:8000',
+  changeOrigin: true
+}))
