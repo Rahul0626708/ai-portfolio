@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getProjects } from '../api/client'
+import { getProjects } from '../api/client.ts'
 
 interface Project {
   id: string
@@ -14,7 +14,7 @@ interface Project {
 export default function Projects() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['projects'],
-    queryFn: () => getProjects().then(r => r.data)
+    queryFn: () => getProjects().then((r: any) => r.data)
   })
 
   return (

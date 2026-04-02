@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getSkills } from '../api/client'
+import { getSkills } from '../api/client.ts'
 
 interface Skill {
   id: string
@@ -18,7 +18,7 @@ const categoryColors: Record<string, string> = {
 export default function Skills() {
   const { data, isLoading } = useQuery({
     queryKey: ['skills'],
-    queryFn: () => getSkills().then(r => r.data)
+    queryFn: () => getSkills().then((r: any) => r.data)
   })
 
   const grouped = data?.reduce((acc: Record<string, Skill[]>, skill: Skill) => {

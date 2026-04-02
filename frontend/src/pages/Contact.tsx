@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { sendMessage } from '../api/client'
+import { sendMessage } from '../api/client.ts'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
