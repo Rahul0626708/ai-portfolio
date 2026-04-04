@@ -16,13 +16,13 @@ app.get('/health', (req, res) => {
 
 // Route /api/projects → Spring Boot
 app.use('/api/projects', createProxyMiddleware({
-  target: 'http://localhost:8080',
+  target: 'https://portfolio-java-g9ov.onrender.com',
   changeOrigin: true
 }))
 
 // Route /api/contact → Python FastAPI
 app.use('/api/contact', createProxyMiddleware({
-  target: 'http://localhost:8000',
+  target: 'https://portfolio-python-ttfc.onrender.com',
   changeOrigin: true
 }))
 

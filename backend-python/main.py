@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import psycopg2, os, requests
 from dotenv import load_dotenv
+import os
+from urllib.parse import urlparse
 
 load_dotenv()
 app = FastAPI(title="Portfolio AI Service")
@@ -46,11 +48,13 @@ def health():
 @app.post("/api/contact/send")
 def send_message(msg: Message):
     try:
+        db_url = urlparse(os.getenv("DATABASE_URL"))
         conn = psycopg2.connect(
-            host="localhost", port=5432,
-            database="portfolio",
-            user="postgres",
-            password=os.getenv("DB_PASSWORD")
+              host=db_url.hostname,
+              port=db_url.port,
+              database=db_url.path[1:],
+              user=db_url.username,
+              password=db_url.password
         )
         cur = conn.cursor()
         cur.execute(
