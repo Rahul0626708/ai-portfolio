@@ -1,3 +1,4 @@
+import PageTransition from '../components/PageTransition'
 import { useQuery } from '@tanstack/react-query'
 import { getSkills } from '../api/client.ts'
 
@@ -28,6 +29,8 @@ export default function Skills() {
   }, {})
 
   return (
+  <PageTransition>
+
     <section className="min-h-screen px-6 pt-28 pb-20">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-2">Skills</h2>
@@ -52,5 +55,12 @@ export default function Skills() {
         ))}
       </div>
     </section>
+     </PageTransition>
+  )
+}
+export function SkeletonPill() {
+  return (
+    <div className="h-10 w-28 bg-gray-800 rounded-lg animate-pulse"></div>
+    
   )
 }
