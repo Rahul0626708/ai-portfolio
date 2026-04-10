@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
         <Link to="/" className="text-xl font-bold text-white">
-          Your<span className="text-purple-400">Name</span>
+          RAHUL<span className="text-purple-400">PRAKASH</span>
         </Link>
 
         {/* Desktop links */}

@@ -1,4 +1,5 @@
 import PageTransition from '../components/PageTransition'
+import SEO from '../components/SEO'
 
 const timeline = [
   { year: '2024', title: 'Started freelancing', desc: 'Began taking freelance projects on Freelancer.com' },
@@ -10,6 +11,10 @@ const timeline = [
 export default function About() {
   return (
     <PageTransition>
+      <SEO
+         title="Home"
+         description="Hire a full stack developer skilled in React, Python, Spring Boot and AI."
+      />
       <section className="min-h-screen px-6 pt-28 pb-20">
         <div className="max-w-4xl mx-auto">
 

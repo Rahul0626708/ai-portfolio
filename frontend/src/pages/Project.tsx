@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getProjects } from '../api/client'
 import { SkeletonCard } from '../components/Skeleton'
 import PageTransition from '../components/PageTransition'
+import SEO from '../components/SEO'
 
 interface Project {
   id: string
@@ -21,6 +22,10 @@ export default function Projects() {
 
   return (
     <PageTransition>
+      <SEO
+         title="Home"
+        description="Hire a full stack developer skilled in React, Python, Spring Boot and AI."
+      />
       <section className="min-h-screen px-6 pt-28 pb-20">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold mb-2">Projects</h2>

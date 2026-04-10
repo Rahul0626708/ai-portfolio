@@ -1,6 +1,7 @@
 import PageTransition from '../components/PageTransition'
 import { useQuery } from '@tanstack/react-query'
 import { getSkills } from '../api/client.ts'
+import SEO from '../components/SEO'
 
 interface Skill {
   id: string
@@ -30,6 +31,10 @@ export default function Skills() {
 
   return (
   <PageTransition>
+    <SEO
+       title="Home"
+       description="Hire a full stack developer skilled in React, Python, Spring Boot and AI."
+       />
 
     <section className="min-h-screen px-6 pt-28 pb-20">
       <div className="max-w-4xl mx-auto">

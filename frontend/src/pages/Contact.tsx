@@ -1,6 +1,8 @@
 import PageTransition from '../components/PageTransition'
 import { useState } from 'react'
 import { sendMessage } from '../api/client.ts'
+import SEO from '../components/SEO'
+
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -19,6 +21,10 @@ export default function Contact() {
   }
 
   return (<PageTransition>
+    <SEO
+             title="Home"
+             description="Hire a full stack developer skilled in React, Python, Spring Boot and AI."
+          />
     <section className="min-h-screen px-6 pt-28 pb-20">
       <div className="max-w-xl mx-auto">
         <h2 className="text-4xl font-bold mb-2">Contact</h2>

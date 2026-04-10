@@ -1,15 +1,20 @@
 import PageTransition from '../components/PageTransition'
+import SEO from '../components/SEO'
 
 export default function Home() {
   return (
     <PageTransition>
+      <SEO
+        title="Home"
+        description="Hire a full stack developer skilled in React, Python, Spring Boot and AI."
+      />
       <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
         <div className="max-w-3xl">
           <div className="w-28 h-28 rounded-full bg-purple-600 mx-auto mb-8 flex items-center justify-center text-4xl">
             👨‍💻
           </div>
           <h1 className="text-5xl font-bold mb-4">
-            Hi, I'm <span className="text-purple-400">Your Name</span>
+            Hi, I'm <span className="text-purple-400">RAHUL PRAKASH</span>
           </h1>
           <p className="text-gray-400 text-xl mb-4">
             Full Stack Developer · AI Enthusiast

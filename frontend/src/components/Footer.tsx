@@ -5,7 +5,7 @@ export default function Footer() {
 
         <div>
           <div className="text-xl font-bold text-white mb-1">
-            Your<span className="text-purple-400">Name</span>
+            RAHUL<span className="text-purple-400">PRAKASH</span>
           </div>
           <p className="text-gray-500 text-sm">Full Stack Developer · Available for hire</p>
         </div>
