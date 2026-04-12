@@ -1,71 +1,109 @@
+import { motion } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
 import PageTransition from '../components/PageTransition'
-import { useQuery } from '@tanstack/react-query'
-import { getSkills } from '../api/client.ts'
-import SEO from '../components/SEO'
 
-interface Skill {
-  id: string
-  name: string
-  category: string
-  level: number
-}
+const skillCategories = [
+  {
+    name: 'Frontend',
+    color: 'bg-blue-500',
+    skills: [
+      { name: 'React.js', level: 90 },
+      { name: 'TypeScript', level: 80 },
+      { name: 'JavaScript (ES6+)', level: 90 },
+      { name: 'Tailwind CSS', level: 85 },
+      { name: 'HTML5 / CSS3', level: 95 },
+      { name: 'Bootstrap', level: 75 },
+    ]
+  },
+  {
+    name: 'Backend',
+    color: 'bg-green-500',
+    skills: [
+      { name: 'Node.js', level: 85 },
+      { name: 'Python', level: 90 },
+      { name: 'FastAPI', level: 80 },
+      { name: 'Spring Boot', level: 75 },
+      { name: 'Express.js', level: 85 },
+      { name: 'REST APIs', level: 90 },
+    ]
+  },
+  {
+    name: 'Database & DevOps',
+    color: 'bg-purple-500',
+    skills: [
+      { name: 'PostgreSQL', level: 80 },
+      { name: 'MongoDB', level: 75 },
+      { name: 'SQL', level: 80 },
+      { name: 'Docker', level: 70 },
+      { name: 'Git / GitHub', level: 90 },
+    ]
+  },
+  {
+    name: 'Data Science & AI',
+    color: 'bg-amber-500',
+    skills: [
+      { name: 'Pandas / NumPy', level: 85 },
+      { name: 'Scikit-learn', level: 75 },
+      { name: 'Matplotlib / Seaborn', level: 80 },
+      { name: 'Machine Learning', level: 70 },
+      { name: 'Ollama / LLM', level: 65 },
+    ]
+  },
+]
 
-const categoryColors: Record<string, string> = {
-  Frontend: 'bg-blue-900 text-blue-300',
-  Backend: 'bg-green-900 text-green-300',
-  Database: 'bg-yellow-900 text-yellow-300',
-  DevOps: 'bg-red-900 text-red-300',
+function SkillBar({ name, level, color, index }: { name: string; level: number; color: string; index: number }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true })
+
+  return (
+    <div ref={ref} className="mb-4">
+      <div className="flex justify-between text-sm mb-1">
+        <span className="text-gray-300">{name}</span>
+        <span className="text-gray-500">{level}%</span>
+      </div>
+      <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+        <motion.div
+          className={`h-full rounded-full ${color}`}
+          initial={{ width: 0 }}
+          animate={inView ? { width: `${level}%` } : { width: 0 }}
+          transition={{ duration: 1, delay: index * 0.1, ease: 'easeOut' }}
+        />
+      </div>
+    </div>
+  )
 }
 
 export default function Skills() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['skills'],
-    queryFn: () => getSkills().then((r: any) => r.data)
-  })
-
-  const grouped = data?.reduce((acc: Record<string, Skill[]>, skill: Skill) => {
-    if (!acc[skill.category]) acc[skill.category] = []
-    acc[skill.category].push(skill)
-    return acc
-  }, {})
-
   return (
-  <PageTransition>
-    <SEO
-       title="Home"
-       description="Hire a full stack developer skilled in React, Python, Spring Boot and AI."
-       />
+    <PageTransition>
+      <section className="min-h-screen px-6 pt-28 pb-20">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl font-bold mb-2"
+          >Skills</motion.h2>
+          <p className="text-gray-400 mb-12">My technical toolkit</p>
 
-    <section className="min-h-screen px-6 pt-28 pb-20">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-2">Skills</h2>
-        <p className="text-gray-400 mb-10">My technical toolkit</p>
-        {isLoading && <p className="text-gray-400">Loading skills...</p>}
-        {grouped && Object.entries(grouped).map(([category, skills]) => (
-          <div key={category} className="mb-8">
-            <h3 className="text-lg font-semibold text-gray-300 mb-4">{category}</h3>
-            <div className="flex flex-wrap gap-3">
-              {(skills as Skill[]).map(skill => (
-                <div key={skill.id}
-                  className="bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 flex items-center gap-3">
-                  <span className={`text-xs px-2 py-0.5 rounded ${categoryColors[skill.category] || 'bg-gray-800 text-gray-300'}`}>
-                    {skill.category}
-                  </span>
-                  <span className="text-white font-medium">{skill.name}</span>
-                  <span className="text-yellow-400 text-sm">{'★'.repeat(skill.level)}{'☆'.repeat(5 - skill.level)}</span>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {skillCategories.map((cat) => (
+              <div key={cat.name}>
+                <h3 className="text-lg font-semibold mb-5 text-gray-200">{cat.name}</h3>
+                {cat.skills.map((skill, i) => (
+                  <SkillBar
+                    key={skill.name}
+                    name={skill.name}
+                    level={skill.level}
+                    color={cat.color}
+                    index={i}
+                  />
+                ))}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </section>
-     </PageTransition>
-  )
-}
-export function SkeletonPill() {
-  return (
-    <div className="h-10 w-28 bg-gray-800 rounded-lg animate-pulse"></div>
-    
+        </div>
+      </section>
+    </PageTransition>
   )
 }
