@@ -18,14 +18,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
         <Link to="/" className="text-xl font-bold text-white">
-          RAHUL<span className="text-purple-400">PRAKASH</span>
+          RAHUL<span className="text-red-400">PRAKASH</span>
         </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex gap-6 text-sm">
           {links.map(link => (
             <Link key={link.to} to={link.to}
-              className={`transition ${pathname === link.to ? 'text-purple-400 font-medium' : 'text-gray-400 hover:text-white'}`}>
+              className={`transition ${pathname === link.to ? 'text-red-400 font-medium' : 'text-gray-400 hover:text-white'}`}>
               {link.label}
             </Link>
           ))}
@@ -33,7 +33,7 @@ export default function Navbar() {
 
         {/* Hire me button */}
         <Link to="/contact"
-          className="hidden md:block px-4 py-2 bg-purple-600 rounded-lg text-white text-sm hover:bg-purple-700 transition">
+          className="hidden md:block px-4 py-2 bg-red-600 rounded-lg text-white text-sm hover:bg-red-700 transition">
           Hire Me
         </Link>
 
@@ -50,12 +50,12 @@ export default function Navbar() {
           {links.map(link => (
             <Link key={link.to} to={link.to}
               onClick={() => setOpen(false)}
-              className={`text-sm transition ${pathname === link.to ? 'text-purple-400 font-medium' : 'text-gray-400 hover:text-white'}`}>
+              className={`text-sm transition ${pathname === link.to ? 'text-red-400 font-medium' : 'text-gray-400 hover:text-white'}`}>
               {link.label}
             </Link>
           ))}
           <Link to="/contact" onClick={() => setOpen(false)}
-            className="px-4 py-2 bg-purple-600 rounded-lg text-white text-sm text-center hover:bg-purple-700 transition">
+            className="px-4 py-2 bg-red-600 rounded-lg text-white text-sm text-center hover:bg-red-700 transition">
             Hire Me
           </Link>
         </div>

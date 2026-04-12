@@ -17,9 +17,9 @@ export default function ParticleBackground() {
         background: { color: { value: 'transparent' } },
         fpsLimit: 60,
         particles: {
-          color: { value: '#7F77DD' },
+          color: { value: '#991B1B' },
           links: {
-            color: '#7F77DD',
+            color: '#991B1B',
             distance: 150,
             enable: true,
             opacity: 0.2,

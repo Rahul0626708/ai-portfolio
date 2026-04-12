@@ -42,8 +42,8 @@ export default function Home() {
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="mx-auto mb-8 w-32 h-32 rounded-full bg-purple-600 flex items-center justify-center text-5xl"
-            style={{ boxShadow: '0 0 40px rgba(127,119,221,0.6)' }}
+            className="mx-auto mb-8 w-32 h-32 rounded-full bg-red-800 flex items-center justify-center text-5xl"
+            style={{ boxShadow: '0 0 40px rgba(185,28,28,0.6)' }}
           >
             👨‍💻
           </motion.div>
@@ -55,7 +55,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-5xl font-bold mb-4"
           >
-            Hi, I'm <span className="text-purple-400">Rahul Prakash</span>
+            Hi, I'm <span className="text-red-400">Rahul Prakash</span>
           </motion.h1>
 
           {/* Typing effect */}
@@ -65,8 +65,8 @@ export default function Home() {
             transition={{ delay: 0.5 }}
             className="text-xl text-gray-400 mb-4 h-8"
           >
-            <span className="text-purple-300">{displayed}</span>
-            <span className="animate-pulse text-purple-400">|</span>
+            <span className="text-red-300">{displayed}</span>
+            <span className="animate-pulse text-red-400">|</span>
           </motion.div>
 
           {/* Description */}
@@ -88,11 +88,11 @@ export default function Home() {
             className="flex gap-4 justify-center flex-wrap"
           >
             <a href="/projects"
-              className="px-8 py-3 bg-purple-600 rounded-lg text-white font-medium hover:bg-purple-700 transition">
+              className="px-8 py-3 bg-red-600 rounded-lg text-white font-medium hover:bg-red-700 transition">
               View My Work
             </a>
             <a href="/contact"
-              className="px-8 py-3 border border-gray-600 rounded-lg text-gray-300 hover:border-purple-500 hover:text-white transition">
+              className="px-8 py-3 border border-gray-600 rounded-lg text-gray-300 hover:border-red-500 hover:text-white transition">
               Hire Me
             </a>
           </motion.div>
@@ -110,7 +110,7 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2 + i * 0.1 }}
-                className="px-3 py-1 bg-gray-800 border border-gray-700 rounded-full text-gray-400 text-sm hover:border-purple-500 hover:text-purple-300 transition"
+                className="px-3 py-1 bg-gray-800 border border-gray-700 rounded-full text-gray-400 text-sm hover:border-red-500 hover:text-red-300 transition"
               >
                 {tech}
               </motion.span>

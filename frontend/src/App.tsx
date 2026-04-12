@@ -13,7 +13,7 @@ const Admin    = lazy(() => import('./pages/Admin'))
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-950 text-white">
+      <div className="min-h-screen bg-red-950 text-white">
         <Navbar />
         <main>
           <Suspense fallback={
