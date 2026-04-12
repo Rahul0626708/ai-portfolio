@@ -5,7 +5,7 @@ export default function Footer() {
 
         <div>
           <div className="text-xl font-bold text-white mb-1">
-            RAHUL<span className="text-purple-400">PRAKASH</span>
+            RAHUL<span className="text-red-400">PRAKASH</span>
           </div>
           <p className="text-gray-500 text-sm">Full Stack Developer · Available for hire</p>
         </div>
@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
 
         <p className="text-gray-600 text-xs">
-          © {new Date().getFullYear()} Your Name. Built with React + AI.
+          © {new Date().getFullYear()} RAHULPRAKASH. Built with React + AI.
         </p>
       </div>
     </footer>

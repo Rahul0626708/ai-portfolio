@@ -20,7 +20,7 @@ export default function About() {
 
           {/* Hero */}
           <div className="flex flex-col md:flex-row gap-10 items-center mb-16">
-            <div className="w-40 h-40 rounded-full bg-purple-600 flex items-center justify-center text-6xl flex-shrink-0">
+            <div className="w-40 h-40 rounded-full bg-red-600 flex items-center justify-center text-6xl flex-shrink-0">
               👨‍💻
             </div>
             <div>
@@ -36,11 +36,11 @@ export default function About() {
               </p>
               <div className="flex gap-4 mt-6">
                 <a href="/contact"
-                  className="px-6 py-2 bg-purple-600 rounded-lg text-white text-sm hover:bg-purple-700 transition">
+                  className="px-6 py-2 bg-red-600 rounded-lg text-white text-sm hover:bg-red-700 transition">
                   Hire Me
                 </a>
                 <a href="/projects"
-                  className="px-6 py-2 border border-gray-600 rounded-lg text-gray-300 text-sm hover:border-purple-500 transition">
+                  className="px-6 py-2 border border-gray-600 rounded-lg text-gray-300 text-sm hover:border-red-500 transition">
                   View Work
                 </a>
               </div>
@@ -54,11 +54,11 @@ export default function About() {
             <div className="space-y-8">
               {timeline.map((item, i) => (
                 <div key={i} className="flex gap-6 pl-12 relative">
-                  <div className="absolute left-0 w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                  <div className="absolute left-0 w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-xs font-bold flex-shrink-0">
                     {item.year.slice(2)}
                   </div>
                   <div>
-                    <span className="text-xs text-purple-400 font-medium">{item.year}</span>
+                    <span className="text-xs text-red-400 font-medium">{item.year}</span>
                     <h4 className="text-white font-semibold mt-1">{item.title}</h4>
                     <p className="text-gray-400 text-sm mt-1">{item.desc}</p>
                   </div>
