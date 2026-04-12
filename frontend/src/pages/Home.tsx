@@ -55,7 +55,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-5xl font-bold mb-4"
           >
-            Hi, I'm <span className="text-red-400">Rahul Prakash</span>
+            Hi, I'm <span className="text-red-600">Rahul Prakash</span>
           </motion.h1>
 
           {/* Typing effect */}
@@ -65,7 +65,7 @@ export default function Home() {
             transition={{ delay: 0.5 }}
             className="text-xl text-gray-400 mb-4 h-8"
           >
-            <span className="text-red-300">{displayed}</span>
+            <span className="text-red-600">{displayed}</span>
             <span className="animate-pulse text-red-400">|</span>
           </motion.div>
 
@@ -110,7 +110,7 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2 + i * 0.1 }}
-                className="px-3 py-1 bg-gray-800 border border-gray-700 rounded-full text-gray-400 text-sm hover:border-red-500 hover:text-red-300 transition"
+                className="px-3 py-1 bg-black-800 border border-black-700 rounded-full text-black-400 text-sm hover:border-red-500 hover:text-red-300 transition"
               >
                 {tech}
               </motion.span>

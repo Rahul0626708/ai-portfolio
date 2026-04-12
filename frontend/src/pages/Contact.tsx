@@ -43,7 +43,7 @@ export default function Contact() {
               type="text" required
               value={form.name}
               onChange={e => setForm({...form, name: e.target.value})}
-              className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500"
+              className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500"
             />
           </div>
           <div>
@@ -52,7 +52,7 @@ export default function Contact() {
               type="email" required
               value={form.email}
               onChange={e => setForm({...form, email: e.target.value})}
-              className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500"
+              className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500"
             />
           </div>
           <div>
@@ -61,13 +61,13 @@ export default function Contact() {
               rows={5} required
               value={form.message}
               onChange={e => setForm({...form, message: e.target.value})}
-              className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 resize-none"
+              className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500 resize-none"
             />
           </div>
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="w-full py-3 bg-purple-600 rounded-lg text-white font-medium hover:bg-purple-700 transition disabled:opacity-50">
+            className="w-full py-3 bg-red-600 rounded-lg text-white font-medium hover:bg-red-700 transition disabled:opacity-50">
             {status === 'sending' ? 'Sending...' : 'Send Message'}
           </button>
           {status === 'error' && (
