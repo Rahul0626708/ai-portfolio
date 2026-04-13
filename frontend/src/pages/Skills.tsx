@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import PageTransition from '../components/PageTransition'
+import ParticleBackground from '../components/ParticleBackground'
 
 const skillCategories = [
   {
@@ -30,7 +31,7 @@ const skillCategories = [
   },
   {
     name: 'Database & DevOps',
-    color: 'bg-purple-500',
+    color: 'bg-red-500',
     skills: [
       { name: 'PostgreSQL', level: 80 },
       { name: 'MongoDB', level: 75 },
@@ -77,33 +78,37 @@ function SkillBar({ name, level, color, index }: { name: string; level: number; 
 export default function Skills() {
   return (
     <PageTransition>
-      <section className="min-h-screen px-6 pt-28 pb-20">
-        <div className="max-w-5xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-bold mb-2"
-          >Skills</motion.h2>
-          <p className="text-gray-400 mb-12">My technical toolkit</p>
+      <div className="relative min-h-screen">
+        <ParticleBackground />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {skillCategories.map((cat) => (
-              <div key={cat.name}>
-                <h3 className="text-lg font-semibold mb-5 text-gray-200">{cat.name}</h3>
-                {cat.skills.map((skill, i) => (
-                  <SkillBar
-                    key={skill.name}
-                    name={skill.name}
-                    level={skill.level}
-                    color={cat.color}
-                    index={i}
-                  />
-                ))}
-              </div>
-            ))}
+        <section className="relative z-10 px-6 pt-28 pb-20">
+          <div className="max-w-5xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl font-bold mb-2"
+            >Skills</motion.h2>
+            <p className="text-gray-400 mb-12">My technical toolkit</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {skillCategories.map((cat) => (
+                <div key={cat.name}>
+                  <h3 className="text-lg font-semibold mb-5 text-gray-200">{cat.name}</h3>
+                  {cat.skills.map((skill, i) => (
+                    <SkillBar
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      color={cat.color}
+                      index={i}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </PageTransition>
   )
 }

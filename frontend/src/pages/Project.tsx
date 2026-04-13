@@ -3,6 +3,7 @@ import { getProjects } from '../api/client'
 import { SkeletonCard } from '../components/Skeleton'
 import PageTransition from '../components/PageTransition'
 import ScrollReveal from '../components/ScrollReveal'
+import ParticleBackground from '../components/ParticleBackground'
 
 interface Project {
   id: string
@@ -22,53 +23,57 @@ export default function Projects() {
 
   return (
     <PageTransition>
-      <section className="min-h-screen px-6 pt-28 pb-20">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal>
-            <h2 className="text-4xl font-bold mb-2">Projects</h2>
-            <p className="text-gray-400 mb-10">Things I've built</p>
-          </ScrollReveal>
+      <div className="relative min-h-screen">
+        <ParticleBackground />
 
-          {isLoading && (
+        <section className="relative z-10 px-6 pt-28 pb-20">
+          <div className="max-w-5xl mx-auto">
+            <ScrollReveal>
+              <h2 className="text-4xl font-bold mb-2">Projects</h2>
+              <p className="text-gray-400 mb-10">Things I've built</p>
+            </ScrollReveal>
+
+            {isLoading && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[...Array(4)].map((_, i) => <SkeletonCard key={i} />)}
+              </div>
+            )}
+
+            {isError && <p className="text-red-400">Could not load projects.</p>}
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[...Array(4)].map((_, i) => <SkeletonCard key={i} />)}
-            </div>
-          )}
-
-          {isError && <p className="text-red-400">Could not load projects.</p>}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data?.map((project: Project, i: number) => (
-              <ScrollReveal key={project.id} delay={i * 0.1}>
-                <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-purple-500 transition h-full">
-                  {project.featured && (
-                    <span className="text-xs bg-purple-900 text-purple-300 px-2 py-1 rounded mb-3 inline-block">
-                      Featured
-                    </span>
-                  )}
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-                  <p className="text-xs text-gray-500 mb-4">{project.techStack}</p>
-                  <div className="flex gap-3">
-                    {project.githubUrl && (
-                      <a href={project.githubUrl} target="_blank"
-                        className="text-sm text-purple-400 hover:text-purple-300">
-                        GitHub →
-                      </a>
+              {data?.map((project: Project, i: number) => (
+                <ScrollReveal key={project.id} delay={i * 0.1}>
+                  <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-red-500 transition h-full">
+                    {project.featured && (
+                      <span className="text-xs bg-red-900 text-red-300 px-2 py-1 rounded mb-3 inline-block">
+                        Featured
+                      </span>
                     )}
-                    {project.liveUrl && (
-                      <a href={project.liveUrl} target="_blank"
-                        className="text-sm text-green-400 hover:text-green-300">
-                        Live →
-                      </a>
-                    )}
+                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                    <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+                    <p className="text-xs text-gray-500 mb-4">{project.techStack}</p>
+                    <div className="flex gap-3">
+                      {project.githubUrl && (
+                        <a href={project.githubUrl} target="_blank"
+                          className="text-sm text-red-400 hover:text-red-300">
+                          GitHub →
+                        </a>
+                      )}
+                      {project.liveUrl && (
+                        <a href={project.liveUrl} target="_blank"
+                          className="text-sm text-green-400 hover:text-green-300">
+                          Live →
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </PageTransition>
   )
 }
