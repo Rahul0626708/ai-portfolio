@@ -18,7 +18,7 @@ export default function ParticleBackground() {
         fpsLimit: 60,
         particles: {
           number: { value: 80, density: { enable: true, area: 600 } },
-          color: { value: ['#ff2200', '#ff6600', '#ff0044', '#ffffff'] },
+          color: { value: ['#8f1c0a', '#ff6600', '#ff0044', '#ffffff'] },
           shape: { type: ['circle', 'triangle'] },
           opacity: {
             value: 0.8,
