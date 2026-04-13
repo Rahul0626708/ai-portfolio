@@ -17,18 +17,47 @@ export default function ParticleBackground() {
         background: { color: { value: 'transparent' } },
         fpsLimit: 60,
         particles: {
-          color: { value: '#ac1111' },
-          links: {
-            color: '#ac1111',
-            distance: 150,
-            enable: true,
-            opacity: 0.2,
-            width: 1,
+          number: { value: 80, density: { enable: true, area: 600 } },
+          color: { value: ['#ff2200', '#ff6600', '#ff0044', '#ffffff'] },
+          shape: { type: ['circle', 'triangle'] },
+          opacity: {
+            value: 0.8,
+            animation: { enable: true, speed: 1, minimumValue: 0.2, sync: false }
           },
-          move: { enable: true, speed: 1 },
-          number: { density: { enable: true, area: 800 }, value: 60 },
-          opacity: { value: 0.3 },
-          size: { value: { min: 1, max: 3 } },
+          size: {
+            value: { min: 2, max: 8 },
+            animation: { enable: true, speed: 3, minimumValue: 1, sync: false }
+          },
+          links: {
+            enable: true,
+            distance: 160,
+            color: '#ff3300',
+            opacity: 0.5,
+            width: 1.5,
+            triangles: { enable: true, color: '#ff220022', opacity: 0.1 }
+          },
+          move: {
+            enable: true,
+            speed: 2.5,
+            direction: 'none',
+            random: true,
+            straight: false,
+            outModes: { default: 'bounce' },
+          },
+          twinkle: {
+            particles: { enable: true, frequency: 0.05, opacity: 1, color: { value: '#ffffff' } },
+            lines: { enable: true, frequency: 0.005, opacity: 0.5, color: { value: '#ff4400' } }
+          },
+        },
+        interactivity: {
+          events: {
+            onHover: { enable: true, mode: 'repulse' },
+            onClick: { enable: true, mode: 'push' },
+          },
+          modes: {
+            repulse: { distance: 120, duration: 0.4 },
+            push: { quantity: 6 },
+          },
         },
         detectRetina: true,
       }}
