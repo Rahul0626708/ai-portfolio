@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import ParticleBackground from '../components/ParticleBackground'
+import ParticleBackground from '../components/GalaxyBackground'
 import PageTransition from '../components/PageTransition'
 
 const roles = ['Full Stack Developer', 'AI Enthusiast', 'Freelancer', 'Problem Solver']

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PageTransition from '../components/PageTransition'
-import ParticleBackground from '../components/ParticleBackground'
+import ParticleBackground from '../components/GalaxyBackground'
 import SEO from '../components/SEO'
 import { sendMessage } from '../api/client'
 

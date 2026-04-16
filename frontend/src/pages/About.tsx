@@ -1,6 +1,6 @@
 import PageTransition from '../components/PageTransition'
 import SEO from '../components/SEO'
-import ParticleBackground from '../components/ParticleBackground'
+import ParticleBackground from '../components/GalaxyBackground'
 
 const timeline = [
   { year: '2024', title: 'Started freelancing', desc: 'Began taking freelance projects on Freelancer.com' },

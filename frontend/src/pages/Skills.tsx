@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import PageTransition from '../components/PageTransition'
-import ParticleBackground from '../components/ParticleBackground'
+import ParticleBackground from '../components/GalaxyBackground'
 
 const skillCategories = [
   {

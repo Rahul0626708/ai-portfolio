@@ -3,7 +3,7 @@ import { getProjects } from '../api/client'
 import { SkeletonCard } from '../components/Skeleton'
 import PageTransition from '../components/PageTransition'
 import ScrollReveal from '../components/ScrollReveal'
-import ParticleBackground from '../components/ParticleBackground'
+import ParticleBackground from '../components/GalaxyBackground'
 
 interface Project {
   id: string
